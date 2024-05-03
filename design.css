@@ -154,3 +154,8 @@ main {
 .products {
   text-align: center;
 }
+
+.fill {
+  width: auto;
+  height: auto;
+}
