@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>drag to spread</title>
+    <!-- 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- 스타일 -->
+  <style>
+    body {
+      background-color: black;
+    }
+
+    #card {
+      width: 128px;
+      height: 180px;
+      cursor: pointer;
+      margin: 0;
+      background-color: white;
+      position: absolute;
+      z-index: 1;
+      border-radius: 7px;
+    }
+
+    #draggable { 
+      display: inline-flex;
+      width: 250px; 
+      height: 180px;
+      background-image: url(spread.png);
+      background-size: 400px 180px;
+      padding: 0;
+      z-index: 0;
+      position: relative;
+      clip-path: inset(0% -51.2% 1% 0% round 2.3%);
+    }
+
+    #base {
+      width: 400px;
+      height: 180px;
+      position: absolute;
+    }
+
+    #moveimg {
+      display: inline-block;
+    }
+
+    #dragTospread {
+      width: 400px;
+      display : block;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<h1 style="color: white;">drag to spread</h1>
+<!-- 드래그 템플릿 -->
+<div id="dragTospread">
+  <div id="draggable">
+    <div class="moveimg">
+      <img src="card.png" id="card">
+      <img src="base.png" id="base">
+    </div>
+  </div>
+</div>
+<script>
+  // the position of card
+  const moveimg = $('#card')
+    const fx = moveimg.offset().left
+  
+    $(".moveimg").draggable({
+      revert: true,
+      revertDuration: 1,
+      containment : 'parent',
+      drag: function() {
+        var x = $(this).offset().left
+        if (x-fx==250) {
+          // put the link you want to go
+          window.location.href = 'https://www.google.com/search?q=How+to+find+135'
+        }}
+      })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>135</title>
+    <link href="design.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="icon" href="135.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+      <!-- 카트 -->
+        <div class="cart">
+          <button onclick="location.href='cart.html'">CART</button>
+          </div>
+
+
+      <div class="logo">
+        <img src="ohtf.png" width="25%" title="number:3618" onclick="location.href= 'index.html'"></img>
+      </div>
+      
+    <div class="bar">
+      <nav>      
+        <a href="index.html" >HOME</a><br>
+        <a href="products.html" >PRODUCTS</a><br>
+        <a href="reference.html" >REFERENCE</a><br>
+        <a href="handc.html" >CONTACT</a><br>  
+      </nav>
+        
+    </div>
+
+  <!-- 상품 진열 -->
+    <div class="container"></div><br>
+    <!-- <p style="text-align: center; color: white;">If you want to change the quantity of products in your cart, you can click the checkout button and change the quantity.</p> -->
+
+    <script>
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMyyLgZcSYkU3oUBj-MKQO1-geOVKD968",
+      authDomain: "ohtf-a5c05.firebaseapp.com",
+      projectId: "ohtf-a5c05",
+      storageBucket: "ohtf-a5c05.appspot.com",
+      messagingSenderId: "263671345747",
+      appId: "1:263671345747:web:ca5857fe5827f4890a8ca6"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+
+    const db = firebase.firestore();
+
+    db.collection('product').get().then((result)=>{
+      result.forEach((doc) => {
+        const container = $('.container');
+        var temp = `
+        <form method="post">
+          <div class="products">
+            <img class="thumnail" src='${doc.data().thumnail}'></img>
+              <input type="number" name="prid" value="${doc.data().prnum}" style="display: none;">
+              <input type="text" name="item_key" value="${doc.data().prname}" style="display: none;">
+              <input type="number" name="price" value="${doc.data().price}" style="display: none;">
+              <input type="text" name="pic" value="${doc.data().lowpic}" style="display: none;">
+              <p class="title">${doc.data().prname}</p>
+              <p class="price">$${doc.data().price}</p>
+              <input type="number" name="ea" value="1" min="1" max="100" disabled>
+              <button onclick="errchk(); putCart(this.form)" disabled>Available Soon</button>
+          </div>`;
+
+          if (doc.data().nostock == true) {
+            var temp = `<form method="post">
+          <div class="products">
+            <img class="thumnail" src='${doc.data().lowpic}'></img>
+              <p class="title" style="text-decoration: line-through;">${doc.data().prname}</p>
+              <p class="price" style="text-decoration: line-through;">$${doc.data().price}</p>
+              <button disabled> SOLD OUT </button>
+          </div>`;
+          };
+
+          if (doc.data().isavail == true) {
+          container.append(temp);
+          };
+      });
+    });
+
+  function putCart(f) {
+    if(chk == false){
+      localStorage.clear()
+    }
+    const value = f.price.value + '|' + f.ea.value + '|' + f.pic.value + '|' + f.prid.value;
+    localStorage.setItem(f.item_key.value, value);
+    alert('product added');
+  };
+
+    for(const e in localStorage) {
+      const value = localStorage.getItem(e)
+      console.log(value)
+    }
+
+    var chk = false;
+
+    function errchk() {
+      const chk = true
+    };
+    </script>
+
+    <footer>
+      <p class="copyright">135 © 2024</p>
+      <img src="paypal.gif" width="70">
+      <img src="msie.gif" width="70">
+      </footer>
+
+    </body>
+</html>

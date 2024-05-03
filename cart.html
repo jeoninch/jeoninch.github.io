@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>135</title>
+    <link href="design.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="icon" href="135.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/jomolhari-3" rel="stylesheet">
+  </head>
+
+  <body> 
+
+  <header>
+    <div class="logo">
+      <img src="ohtf.png" width="25%" title="number:3618" onclick="location.href= 'index.html'"></img>
+    </div>
+  </header>
+
+
+  <section>
+
+      <!-- 전체 카트 미리보기 창 -->
+      <div style="display: flex; justify-content: center;">
+        <div id="info" style="cursor: pointer; display: inline-flex; z-index: 5;">
+          <div class="window" style="width: 500px;">
+            <!-- 윈도우 바 -->
+            <div class="title-bar">
+              <div class="title-bar-text">CART</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize" onclick="cart_site()"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <!-- 윈도우 창 -->
+            <div class="window-body">
+              <p class="empty" style="font-size: medium;"></p>
+              <ul id="ul" style="font-size: medium;">
+              </ul>
+              <p class="sub_price" style="font-size: medium;">Sub total : </p>
+              <button id="clear_btn">REMOVE ALL</button>
+              <button id="checkout" onclick="cart_site()">CHECKOUT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="back">
+      <button onclick="history.back()">BACK</button>
+      </div>
+      </section>
+
+      <script>        
+        var text = "";
+        var cart_empty = "Your cart is empty";
+        var subtotal = 0
+        const ul = document.querySelector('#ul');
+        const storage = window.localStorage.length;
+        var pr=[];
+        var chckoutbtn = false;
+        const clear_btn = document.querySelector('#clear_btn');
+
+        for(const e in localStorage) {
+          const value = localStorage.getItem(e)
+          if(value) {
+            const addList = value.split("|")
+            const product = localStorage.key(e)
+            const price = addList[0]
+            const quantity = addList[1]
+            const bitpic = addList[2]
+            const prid = addList[3]
+            const bit = new Image()
+            bit.src = `${bitpic}`
+            bit.style.width = '15%'
+            bit.style.margin = '5px'
+            const el = document.createElement("li")
+            const tx = document.createTextNode(product+ " x " +quantity)
+            el.appendChild(tx)
+            ul.appendChild(bit)
+            ul.appendChild(el)
+            const pid = prid +':'+ quantity
+            pr.push(pid)
+            // 성공...
+            subtotal = subtotal + (quantity*price)
+          };
+        };
+        document.querySelector(".sub_price").append(subtotal+"$")
+        // 구매코드작성
+        for (e in pr){
+        text += pr[e] + ','
+        };
+        // 마지막 콤마 삭제
+        text = text.slice(0, -1);
+        // 구매 링크 설정
+        var link= 'https://a3a10a-3.myshopify.com/cart/'+ text + '?storefront=true'
+        console.log(link)
+        // 쇼피파이 카트 바로가기
+        function cart_site() {
+        if(storage != 0) {
+          window.open(`${link}`,"_blank", "width=500, height=900, left=1000, top=200")
+          localStorage.clear()
+        } else{
+          alert('Add your product to go checkout')
+          return false
+        };
+      };
+      if (storage == 0 ){
+        var text = ''
+        var link = ''
+        document.querySelector('.sub_price').remove()
+        var emptyalert= document.querySelector(".empty").textContent = cart_empty
+      };
+      
+      clear_btn.addEventListener('click',function() {
+        localStorage.clear()
+        window.location.reload()
+      });
+      </script>
+    <footer>
+      <p class="copyright">135 © 2024</p>
+    </footer>
+  </body>
+</html>

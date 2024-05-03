@@ -1,0 +1,156 @@
+html {
+  background-color: black;
+}
+
+head {
+  font-size: 60px;
+  color: white;
+}
+
+footer {
+  text-align: center;
+}
+
+div.bar a {
+  color: white;
+  margin: 3px;
+  list-style-type: none;
+  font-size: medium;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+div.bar {
+  margin: 15px;
+  text-align: center;
+}
+
+.welcome {
+  color: black;
+  text-align: center;
+}
+
+a.mission {
+  color: rgb(255, 255, 255);
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p.copyright {
+  color: white;
+  text-align: center;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} 
+
+div.logo {
+  text-align: center;
+  cursor: pointer;
+}
+
+.cart {
+  text-align: right;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+.reference  {
+  text-align: center;
+  margin: 10px;
+}
+
+section {
+  width: auto;
+  height: auto;
+  background-color: black;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#Playingcards_products {
+  text-align: center;
+  size: 90%;
+  margin: 10px;
+}
+
+.thumnail {
+  background-color: white; 
+  width: 250px; 
+  height: 250px;
+  cursor: pointer;
+  margin: 10px;
+  display:inline-block;
+}
+
+
+.title {
+  margin: 1px;
+  color: white;
+  font-size: large;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.price {
+  margin: 4px;
+  color: white;
+  font-size: large;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.back {
+  text-align: center;
+  margin: 20px;
+}
+
+.history {
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  font-size: medium;
+  line-height: 5px;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  justify-content: center;
+  margin: 20px;
+  display:flex ;
+}
+
+main {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: "EB Garamond", serif;
+  font-size: medium;
+}
+
+.korean {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: "EB Garamond", serif;
+  font-size: small;
+  font-weight: 600;
+}
+
+.products {
+  text-align: center;
+}
