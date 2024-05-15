@@ -15,7 +15,7 @@
 
   <header>
     <div class="logo">
-      <img src="ohtf.png" width="25%" title="number:3618" onclick="location.href= 'index.html'"></img>
+      <img src="ohtf.png" width="25%" onclick="location.href= 'index.html'"></img>
     </div>
   </header>
 
@@ -86,15 +86,16 @@
             subtotal = subtotal + (quantity*price)
           };
         };
+
         document.querySelector(".sub_price").append(subtotal+"$")
         // 구매코드작성
         for (e in pr){
         text += pr[e] + ','
         };
         // 마지막 콤마 삭제
-        text = text.slice(0, -1);
+        text = text.slice(0,-1);
         // 구매 링크 설정
-        var link= 'https://a3a10a-3.myshopify.com/cart/'+ text + '?storefront=true'
+        var link= 'https://baeksamsibo.myshopify.com/cart/'+ text + '?storefront=true'
         console.log(link)
         // 쇼피파이 카트 바로가기
         function cart_site() {

@@ -25,7 +25,7 @@
 
 
       <div class="logo">
-        <img src="ohtf.png" width="25%" title="number:3618" onclick="location.href= 'index.html'"></img>
+        <img src="ohtf.png" width="25%" onclick="location.href= 'index.html'"></img>
       </div>
       
     <div class="bar">
@@ -43,10 +43,6 @@
     <!-- <p style="text-align: center; color: white;">If you want to change the quantity of products in your cart, you can click the checkout button and change the quantity.</p> -->
 
     <script>
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCMyyLgZcSYkU3oUBj-MKQO1-geOVKD968",
       authDomain: "ohtf-a5c05.firebaseapp.com",
@@ -68,36 +64,40 @@
         <form method="post">
           <div class="products">
             <img class="thumnail" src='${doc.data().thumnail}'></img>
-              <input type="number" name="prid" value="${doc.data().prnum}" style="display: none;">
-              <input type="text" name="item_key" value="${doc.data().prname}" style="display: none;">
-              <input type="number" name="price" value="${doc.data().price}" style="display: none;">
-              <input type="text" name="pic" value="${doc.data().lowpic}" style="display: none;">
-              <p class="title">${doc.data().prname}</p>
-              <p class="price">$${doc.data().price}</p>
-              <input type="number" name="ea" value="1" min="1" max="100" disabled>
-              <button onclick="errchk(); putCart(this.form)" disabled>Available Soon</button>
+            <input type="text" name="prid" value="${doc.data().prnum}" style="display: none;">
+            <input type="text" name="item_key" value="${doc.data().prname}" style="display: none;">
+            <input type="number" name="price" value="${doc.data().price}" style="display: none;">
+            <input type="text" name="pic" value="${doc.data().lowpic}" style="display: none;">
+            <p class="title">${doc.data().prname}</p>
+            <p class="price">$${doc.data().price}</p>
+            <input type="number" name="ea" value="1" min="1" max="25" >
+            <button onclick="putCart(this.form)" >ADD TO CART</button>
           </div>`;
 
           if (doc.data().nostock == true) {
             var temp = `<form method="post">
           <div class="products">
             <img class="thumnail" src='${doc.data().lowpic}'></img>
-              <p class="title" style="text-decoration: line-through;">${doc.data().prname}</p>
-              <p class="price" style="text-decoration: line-through;">$${doc.data().price}</p>
-              <button disabled> SOLD OUT </button>
+            <p class="title" style="text-decoration: line-through;">${doc.data().prname}</p>
+            <p class="price" style="text-decoration: line-through;">$${doc.data().price}</p>
+            <button disabled> SOLD OUT </button>
           </div>`;
           };
 
-          if (doc.data().isavail == true) {
+        if (doc.data().isavail == true) {
           container.append(temp);
-          };
+          $(".thumnail").bind('mouseover',function() {
+            $(this).attr({ src: `${doc.data().thuminfo}` });
+          }).bind('mouseleave',function() {
+            $(this).attr({ src: `${doc.data().thumnail}` });
+          });
+        };
+
       });
+
     });
 
   function putCart(f) {
-    if(chk == false){
-      localStorage.clear()
-    }
     const value = f.price.value + '|' + f.ea.value + '|' + f.pic.value + '|' + f.prid.value;
     localStorage.setItem(f.item_key.value, value);
     alert('product added');
@@ -107,18 +107,16 @@
       const value = localStorage.getItem(e)
       console.log(value)
     }
-
-    var chk = false;
-
-    function errchk() {
-      const chk = true
-    };
     </script>
 
     <footer>
       <p class="copyright">135 © 2024</p>
       <img src="paypal.gif" width="70">
-      <img src="msie.gif" width="70">
+      <img src="msie.gif" width="70"><br>
+      <div class="tos">
+        <a href="https://baeksamsibo.myshopify.com/policies/terms-of-service" >Terms of service</a>
+        <a href="https://baeksamsibo.myshopify.com/policies/refund-policy" >Refund policy</a>
+      </div>
       </footer>
 
     </body>
