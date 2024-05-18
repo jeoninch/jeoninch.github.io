@@ -70,8 +70,8 @@
             <input type="text" name="pic" value="${doc.data().lowpic}" style="display: none;">
             <p class="title">${doc.data().prname}</p>
             <p class="price">$${doc.data().price}</p>
-            <input type="number" name="ea" value="1" min="1" max="25" disabled>
-            <button onclick="putCart(this.form)" disabled>ADD TO CART</button>
+            <input type="number" name="ea" value="1" min="1" max="25">
+            <button onclick="putCart(this.form)">ADD TO CART</button>
           </div>`;
 
           if (doc.data().nostock == true) {

@@ -40,30 +40,10 @@
   </header>
     <!--참고자료 영상-->
     <section>
-      <div class="reference"></div>
+      <div class="reference">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7Z_46F0utXg?si=G2UIuQ_CFM8VhgNP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </section>
-    <script>
-      const firebaseConfig = {
-      apiKey: "AIzaSyCMyyLgZcSYkU3oUBj-MKQO1-geOVKD968",
-      authDomain: "ohtf-a5c05.firebaseapp.com",
-      projectId: "ohtf-a5c05",
-      storageBucket: "ohtf-a5c05.appspot.com",
-      messagingSenderId: "263671345747",
-      appId: "1:263671345747:web:ca5857fe5827f4890a8ca6"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-
-    const db = firebase.firestore();
-    db.collection('reference').get().then((result)=>{
-      result.forEach((doc) => {
-        console.log(doc.data());
-        var video_link = `${doc.data().link}`;
-        $(".reference").append(video_link);
-      });
-    });
-    </script>
       <footer>
         <p class="copyright">135 © 2024</p>
         <img src="paypal.gif" width="70">
