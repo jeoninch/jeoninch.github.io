@@ -40,7 +40,7 @@
 
   <!-- 상품 진열 -->
     <div class="container"></div><br>
-    <!-- <p style="text-align: center; color: white;">If you want to change the quantity of products in your cart, you can click the checkout button and change the quantity.</p> -->
+    <p style="text-align: center; color: white;">If you want to change the quantity of products in your cart, you can click the checkout button and change the quantity.</p>
 
     <script>
     const firebaseConfig = {
@@ -101,12 +101,8 @@
     const value = f.price.value + '|' + f.ea.value + '|' + f.pic.value + '|' + f.prid.value;
     localStorage.setItem(f.item_key.value, value);
     alert('product added');
+    window.location.reload()
   };
-
-    for(const e in localStorage) {
-      const value = localStorage.getItem(e)
-      console.log(value)
-    }
     </script>
 
     <footer>
