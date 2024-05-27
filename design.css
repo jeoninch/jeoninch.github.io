@@ -136,6 +136,24 @@ main {
   font-size: medium;
 }
 
+.tandc_k {
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-family: "EB Garamond", serif;
+  font-size: small;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.tandc_en {
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-family: "EB Garamond", serif;
+  font-size: medium;
+  width: 50%;
+  margin-left: 25%;
+}
+
 .korean {
   text-align: center;
   color: rgb(255, 255, 255);
@@ -168,4 +186,10 @@ main {
   height: 250px;
   cursor: pointer;
   margin: 10px;
+}
+
+.info {
+  font-size: smaller;
+  font-style: italic;
+  color: rgb(85, 85, 85);
 }
