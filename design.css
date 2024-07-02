@@ -16,7 +16,7 @@ footer {
   margin: 3px;
   list-style-type: none;
   font-size: medium;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -34,7 +34,7 @@ footer {
 
 a.mission {
   color: rgb(255, 255, 255);
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -43,7 +43,7 @@ a.mission {
 p.copyright {
   color: white;
   text-align: center;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -74,7 +74,7 @@ section {
   width: auto;
   height: auto;
   background-color: black;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -90,7 +90,7 @@ section {
   margin: 1px;
   color: white;
   font-size: large;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -100,7 +100,7 @@ section {
   margin: 4px;
   color: white;
   font-size: large;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -117,7 +117,7 @@ section {
   text-align: center;
   font-size: medium;
   line-height: 5px;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -132,14 +132,15 @@ section {
 main {
   text-align: center;
   color: rgb(255, 255, 255);
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
+  font-weight: 500;
   font-size: medium;
 }
 
 .tandc_k {
   text-align: left;
   color: rgb(255, 255, 255);
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-size: small;
   width: 50%;
   margin-left: 25%;
@@ -148,7 +149,7 @@ main {
 .tandc_en {
   text-align: left;
   color: rgb(255, 255, 255);
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-size: medium;
   width: 50%;
   margin-left: 25%;
@@ -157,7 +158,7 @@ main {
 .korean {
   text-align: center;
   color: rgb(255, 255, 255);
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-size: small;
   font-weight: 600;
 }
@@ -174,7 +175,7 @@ main {
 
 .tos a{
   color: white;
-  font-family: "EB Garamond", serif;
+  font-family: "Times New Roman", serif;
   font-optical-sizing: auto;
   font-size: small;
   text-decoration-line: underline;
@@ -186,10 +187,4 @@ main {
   height: 250px;
   cursor: pointer;
   margin: 10px;
-}
-
-.info {
-  font-size: smaller;
-  font-style: italic;
-  color: rgb(85, 85, 85);
 }
