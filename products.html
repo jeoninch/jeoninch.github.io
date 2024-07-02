@@ -12,9 +12,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -40,7 +37,7 @@
 
   <!-- 상품 진열 -->
     <div class="container"></div><br>
-    <p style="text-align: center; color: white;">If you want to change the quantity of products in your cart, you can click the checkout button and change the quantity.</p>
+    <!-- <p style="font-family: 'Times New Roman', serif; text-align: center; color: white;">If you want to change the quantity of products in your cart, you can click the checkout button and change the quantity.</p> -->
 
     <script>
     const firebaseConfig = {
@@ -64,14 +61,9 @@
         <form>
           <div class="products">
             <img class="thumnail" src='${doc.data().thumnail}'></img>
-            <input type="text" name="prid" value="${doc.data().prnum}" style="display: none;">
-            <input type="text" name="item_key" value="${doc.data().prname}" style="display: none;">
-            <input type="number" name="price" value="${doc.data().price}" style="display: none;">
-            <input type="text" name="pic" value="${doc.data().lowpic}" style="display: none;">
             <p class="title">${doc.data().prname}</p>
             <p class="price">$${doc.data().price}</p>
-            <input type="number" name="ea" value="1" min="1" max="25">
-            <button onclick="putCart(this.form)">ADD TO CART</button>
+            <a href="https://www.paypal.com/ncp/payment/J6JSEYUXKGCPN"><button>BUY</button></a>
           </div>`;
 
           if (doc.data().nostock == true) {
@@ -96,25 +88,18 @@
       });
 
     });
-
-  function putCart(f) {
-    const value = f.price.value + '|' + f.ea.value + '|' + f.pic.value + '|' + f.prid.value;
-    localStorage.setItem(f.item_key.value, value);
-    alert('product added');
-    window.location.reload()
-  };
     </script>
 
     <footer>
-      <p class="copyright">135 © 2024</p>
       <img src="paypal.gif" width="70">
       <img src="msie.gif" width="70"><br>
       <div class="tos">
+        <br>
         <a href="TermsofService.html" >Terms of service</a>
-        <a href="tandc.html">Delivery&Refund policy</a>
+        <a href="tandc.html">Delivery & Refund policy</a>
+        <p class="copyright">135 © 2024 </p>
       </div>
-      <p class="info">백삼십오 | 인천광역시 연수구 먼우금로 149 105-502 |<br> 사업자등록번호 : 422-08-02581 | Tel: 010 9828 5330 | E-mail:baeksamsibo@hotmail.com</p>
-      </footer>
+    </footer>
 
     </body>
 </html>
